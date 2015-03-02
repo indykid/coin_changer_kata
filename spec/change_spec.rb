@@ -1,7 +1,9 @@
 def make_change_for(pence)
   result = []
   if pence > 0
-    if pence % 5 == 0
+    if pence % 10 == 0
+      result << 10
+    elsif pence % 5 == 0
       result << 5
     elsif pence % 2 == 0
       result << 2
@@ -28,4 +30,11 @@ describe "changes" do
   it '5p for 5' do
     expect(make_change_for(5)).to eq([5])
   end
+
+  it '10p for 10' do
+    expect(make_change_for(10)).to eq([10])
+  end
+
+
+
 end

@@ -35,6 +35,10 @@ describe "changes" do
     expect(make_change_for(10)).to eq([10])
   end
 
+  it '20p for 20' do
+    expect(make_change_for(20)).to eq([20])
+  end
+
 
 
 end

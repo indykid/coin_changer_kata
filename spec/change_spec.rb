@@ -2,19 +2,10 @@ COINS = [200, 100, 50, 20, 10, 5, 2, 1]
 
 def make_change_for(pence)
   result = []
-
-  if pence > 0
-    COINS.each do |coin|
-      if pence % coin == 0
-        result << coin
-        return result
-      # elsif pence % 5 == 0
-      #   result << 5
-      # elsif pence % 2 == 0
-      #   result << 2
-      # elsif pence % 1 == 0
-      #   result << 1
-      end
+  COINS.each do |coin|
+    while pence > 0 && pence >= coin
+      result << coin
+      pence -= coin
     end
   end
   result
@@ -49,5 +40,20 @@ describe "changes" do
     expect(make_change_for(200)).to eq([200])
   end
 
+  it '2 x 20p for 40' do
+    expect(make_change_for(40)).to eq([20, 20])
+  end
+
+  it '... for 343' do
+    expect(make_change_for(343)).to eq([200, 100, 20, 20, 2, 1])
+  end
+
+  it '... for 39' do
+    expect(make_change_for(39)).to eq([20, 10, 5, 2, 2])
+  end
+
+  it '... for 3' do
+    expect(make_change_for(3)).to eq([2, 1])
+  end
 
 end

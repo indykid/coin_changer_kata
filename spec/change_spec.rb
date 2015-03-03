@@ -3,7 +3,7 @@ COINS = [200, 100, 50, 20, 10, 5, 2, 1]
 def make_change_for(pence)
   result = []
   COINS.each do |coin|
-    while pence > 0 && pence >= coin
+    while pence >= coin
       result << coin
       pence -= coin
     end

@@ -44,16 +44,15 @@ describe "changes" do
     expect(make_change_for(40)).to eq([20, 20])
   end
 
-  it '... for 343' do
-    expect(make_change_for(343)).to eq([200, 100, 20, 20, 2, 1])
+  it '... for 3' do
+    expect(make_change_for(3)).to eq([2, 1])
   end
 
   it '... for 39' do
     expect(make_change_for(39)).to eq([20, 10, 5, 2, 2])
   end
 
-  it '... for 3' do
-    expect(make_change_for(3)).to eq([2, 1])
+  it '... for 343' do
+    expect(make_change_for(343)).to eq([200, 100, 20, 20, 2, 1])
   end
-
 end
